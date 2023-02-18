@@ -131,7 +131,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
               >
                 <HardwareIcon />
               </ListItemIcon>
-              <ListItemText primary={"Tools 2"} sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText primary={"Code Snippet Manager"} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </Link>
         </ListItem>
