@@ -1,3 +1,4 @@
+// Edm Config Tools Actions
 export const edmAction = {
   UPDATE_INPUT: "UPDATE_INPUT",
   HANDLE_CONTAINER: "HANDLE_CONTAINER",
@@ -9,4 +10,10 @@ export const edmAction = {
   UPDATE_IMG_PREVIEWER: "UPDATE_IMG_PREVIEWER",
   START_LOADING: "START_LOADING",
   END_LOADING: "END_LOADING",
+};
+
+// Code Snipper Manager Actions
+export const csmAction = {
+  OPEN_DIALOG: "OPEN_DIALOG",
+  CLOSE_DIALOG: "CLOSE_DIALOG",
 };
