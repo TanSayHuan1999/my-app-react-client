@@ -16,4 +16,5 @@ export const edmAction = {
 export const csmAction = {
   OPEN_DIALOG: "OPEN_DIALOG",
   CLOSE_DIALOG: "CLOSE_DIALOG",
+  UPDATE_CURR_LANG: "UPDATE_CURR_LANG",
 };

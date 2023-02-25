@@ -10,6 +10,7 @@ import SearchBox from "./SearchBox";
 import SearchIcon from "@mui/icons-material/Search";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 import AutoStoriesSharpIcon from "@mui/icons-material/AutoStoriesSharp";
+import CreateCodeSnippetDialog from "./CreateCodeSnippetDialog";
 
 const CodeSnippetManager = () => {
   // Variable Declarations
@@ -114,12 +115,8 @@ const CodeSnippetManager = () => {
     );
   };
 
-  // Functions
-  const openDialog = () => {};
-
-  return (
-    <Paper className="h-full overflow-y-auto p-3 pt-0 relative">
-      <Title name="Code Snippet Manager" />
+  const FilteringArea = () => {
+    return (
       <Box className="p-5 flex flex-row justify-between sticky top-[49px] bg-white z-10">
         <TextField
           className="w-1/2 !mr-1"
@@ -137,14 +134,25 @@ const CodeSnippetManager = () => {
         <TextField className="w-1/2 !ml-1" select label="Group By" variant="standard">
           <MenuItem value="language">Language</MenuItem>
           <MenuItem value="tags">Tags</MenuItem>
-          <MenuItem value="cs_type">Code Snippet Type</MenuItem>
+          <MenuItem value="cs_type">Code Snippet Typeppp</MenuItem>
         </TextField>
       </Box>
+    );
+  };
+
+  // Functions
+  const openDialog = () => dispatch({ type: csmAction.OPEN_DIALOG, payload: "create_code_snippet" });
+
+  return (
+    <Paper className="h-full overflow-y-auto p-3 pt-0 relative">
+      <Title name="Code Snippet Manager" />
+      <FilteringArea />
       <Listing />
       <FloatingBtn />
       <FloatingPgBtn />
       <Loading />
       <Alert />
+      <CreateCodeSnippetDialog />
     </Paper>
   );
 };
