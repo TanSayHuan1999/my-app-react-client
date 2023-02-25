@@ -1,15 +1,12 @@
 import { Box, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, Switch, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import ColorPicker from "material-ui-color-picker";
-import Editor from "@monaco-editor/react";
-import ImageUploadContainer from "./ImageUploadContainer";
-import ImageDropzone from "./ImageDropzone";
 import { useDispatch } from "react-redux";
-import { csmAction } from "../../../actions/actionTypes";
-import CodeEditor from "./CodeEditor";
+import { csmAction } from "../../../../constants/actionTypes";
+import CodeEditor from "../editors/CodeEditor";
 
-import RichTextEditor from "./RichTextEditor";
-import MuiTagsInput from "./MuiTagsInput";
+import RichTextEditor from "../editors/RichTextEditor";
+import MuiTagsInput from "../editors/MuiTagsInput";
 
 const Input = ({ label, name, type, options, occupyMode }) => {
   console.log("render....");
@@ -18,10 +15,9 @@ const Input = ({ label, name, type, options, occupyMode }) => {
   options ||= [];
   const handleValue = (e) => {
     console.log(e);
-    setVal(["color", "codeEditor", "image", "tags"].includes(type) ? e : type === "switch" ? e.target.checked : e.target.value);
+    setVal(["color", "codeEditor", "image", "tags", "richTextEditor"].includes(type) ? e : type === "switch" ? e.target.checked : e.target.value);
     if (name === "language") dispatch({ type: csmAction.UPDATE_CURR_LANG, payload: e.target.value });
   };
-  const handleDeleteTag = (tagToDelete) => setVal(val.filter((tag) => tag !== tagToDelete));
 
   return (
     <Grid item xs={12} md={occupyMode === "1/4" ? 3 : occupyMode === "1/3" ? 4 : occupyMode === "1/2" ? 6 : 13} className="flex-1">

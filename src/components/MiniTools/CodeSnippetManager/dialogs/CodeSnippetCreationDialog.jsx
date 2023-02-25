@@ -7,16 +7,17 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { csmAction } from "../../../actions/actionTypes";
+import { csmAction } from "../../../../constants/actionTypes";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Grid, TextField } from "@mui/material";
-import Input from "./Input";
-import { CreateCodeSnippetInputs } from "./Constant";
-import Title from "../../layouts/Title";
+import Input from "../components/Input";
+import { CreateCodeSnippetInputs } from "../Constant";
+import Title from "../../../layouts/Title";
 import PublishIcon from "@mui/icons-material/Publish";
 import CloseIcon from "@mui/icons-material/Close";
+import { codeSnippetAdd } from "../../../../actions/codeSnippets";
 
-export default function CreateCodeSnippetDialog() {
+export default function CodeSnippetCreationDialog() {
   const dialogName = "create_code_snippet";
   const dispatch = useDispatch();
   const dialogToOpen = useSelector((state) => state.csm.showDialog);
@@ -26,7 +27,9 @@ export default function CreateCodeSnippetDialog() {
   const handleSubmit = (e) => {
     e.preventDefault();
     let fd = Object.fromEntries(new FormData(e.target));
-    console.log(fd);
+    let newCodeSnippet = { ...fd, isFeatured: fd?.isFeatured ? true : false };
+    console.log(newCodeSnippet);
+    dispatch(codeSnippetAdd(newCodeSnippet));
   };
 
   return (

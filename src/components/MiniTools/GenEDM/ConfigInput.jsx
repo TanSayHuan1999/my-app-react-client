@@ -2,7 +2,7 @@ import { Box, FormControl, FormControlLabel, InputLabel, MenuItem, Select, Switc
 import React, { useState } from "react";
 import ColorPicker from "material-ui-color-picker";
 import { useDispatch, useSelector } from "react-redux";
-import { edmAction } from "../../../actions/actionTypes";
+import { edmAction } from "../../../constants/actionTypes";
 
 const ConfigInput = ({ label, name, type, options }) => {
   const dispatch = useDispatch();

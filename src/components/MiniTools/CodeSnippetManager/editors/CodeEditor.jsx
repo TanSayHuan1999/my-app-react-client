@@ -3,7 +3,7 @@ import { FormControl, Typography } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 
-const CodeEditor = ({ label, name, value, onChange }) => {
+const CodeEditor = ({ label, name, value, onChange, readOnly = false }) => {
   const currLang = useSelector((state) => state.csm.currLanguage);
   return (
     <FormControl fullWidth>
@@ -16,6 +16,7 @@ const CodeEditor = ({ label, name, value, onChange }) => {
         className="border-2 border-gray-500 min-h-[120px]"
         language={name === "code_snippet" ? currLang : "plaintext"}
         onChange={onChange}
+        options={{ readOnly }}
       />
     </FormControl>
   );

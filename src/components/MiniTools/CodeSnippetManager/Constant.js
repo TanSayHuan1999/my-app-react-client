@@ -9,7 +9,7 @@ export const CreateCodeSnippetInputs = [
     ],
     occupyMode: "1/2",
   },
-  { name: "is_featured", label: "Is Featured ?", type: "switch", occupyMode: "1/2" },
+  { name: "isFeatured", label: "Is Featured ?", type: "switch", occupyMode: "1/2" },
   { name: "name", label: "Name", type: "text", occupyMode: "full" },
   { name: "purpose", label: "Purpose", type: "text", occupyMode: "full" },
   { name: "tags", label: "Tags", type: "tags", occupyMode: "1/3" },
@@ -44,5 +44,5 @@ export const CreateCodeSnippetInputs = [
   },
   { name: "source", label: "Source", type: "text", occupyMode: "1/3" },
   { name: "code_snippet", label: "Code Snippet", type: "codeEditor", occupyMode: "full" },
-  { name: "output_text", label: "Output", type: "richTextEditor", occupyMode: "full" },
+  { name: "output", label: "Output", type: "richTextEditor", occupyMode: "full" },
 ];

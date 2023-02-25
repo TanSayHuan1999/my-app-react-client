@@ -7,7 +7,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Zoom from "@mui/material/Zoom";
 import { useDispatch, useSelector } from "react-redux";
-import { edmAction } from "../../../actions/actionTypes";
+import { edmAction } from "../../../constants/actionTypes";
 import { Box, Divider, FormControl, InputLabel, TextField } from "@mui/material";
 import ColorPicker from "material-ui-color-picker";
 

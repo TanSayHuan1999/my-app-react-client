@@ -4,7 +4,7 @@ import React, { useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Title from "../../layouts/Title";
 import useStyle from "./Styles";
-import { edmAction } from "../../../actions/actionTypes";
+import { edmAction } from "../../../constants/actionTypes";
 import { v4 as uuidv4 } from "uuid";
 import useLoading from "../../../customHooks/useLoading";
 import useAlert from "../../../customHooks/useAlert";

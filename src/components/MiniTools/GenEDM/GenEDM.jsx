@@ -14,7 +14,7 @@ import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import DownloadIcon from "@mui/icons-material/Download";
 import useStyle from "./Style.js";
-import { edmAction } from "../../../actions/actionTypes";
+import { edmAction } from "../../../constants/actionTypes";
 import ConfigImgDialog from "./ConfigImgDialog";
 import isEqual from "lodash/isEqual";
 import { v4 as uuidv4 } from "uuid";
