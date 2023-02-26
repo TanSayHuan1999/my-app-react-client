@@ -8,13 +8,7 @@ import { selectCodeSnippetList, selectQueryParams } from "../../../../reducers/c
 import Subtitle from "../../../layouts/Subtitle";
 
 const CodeSnippetListing = () => {
-  // const dispatch = useDispatch();
   const csList = useSelector(selectCodeSnippetList);
-  // useEffect(() => {
-  //   // dispatch(codeSnippetList({}));
-  // }, [dispatch]);
-
-  console.log(csList);
 
   return (
     <Box component="div" className="ml-2">

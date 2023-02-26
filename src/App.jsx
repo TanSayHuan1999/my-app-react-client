@@ -10,6 +10,30 @@ import SideBar from "./components/layouts/SideBar";
 import GenEDM from "./components/MiniTools/GenEDM/GenEDM";
 import CodeSnippetManager from "./components/MiniTools/CodeSnippetManager/CodeSnippetManager";
 
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #bec4c4;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+`;
+
 const App = () => {
   const [open, setOpen] = useState(true);
 
@@ -33,6 +57,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Box sx={{ display: "flex", height: "100%" }}>
+        <GlobalStyle />
         <CssBaseline />
         <NavBar handleDrawerOpen={handleDrawerOpen} open={open} />
         <SideBar handleDrawerClose={handleDrawerClose} open={open} />
