@@ -1,5 +1,5 @@
 import { Box, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, Switch, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import ColorPicker from "material-ui-color-picker";
 import { useDispatch } from "react-redux";
 import { csmAction } from "../../../../constants/actionTypes";
@@ -8,13 +8,12 @@ import CodeEditor from "../editors/CodeEditor";
 import RichTextEditor from "../editors/RichTextEditor";
 import MuiTagsInput from "../editors/MuiTagsInput";
 
-const Input = ({ label, name, type, options, occupyMode }) => {
-  console.log("render....");
+const Input = ({ label, name, type, options, occupyMode, currValue }) => {
+  console.log("render...");
   const dispatch = useDispatch();
-  const [val, setVal] = useState("");
+  const [val, setVal] = useState(currValue || "");
   options ||= [];
   const handleValue = (e) => {
-    console.log(e);
     setVal(["color", "codeEditor", "image", "tags", "richTextEditor"].includes(type) ? e : type === "switch" ? e.target.checked : e.target.value);
     if (name === "language") dispatch({ type: csmAction.UPDATE_CURR_LANG, payload: e.target.value });
   };
@@ -65,4 +64,4 @@ const Input = ({ label, name, type, options, occupyMode }) => {
   );
 };
 
-export default Input;
+export default memo(Input);

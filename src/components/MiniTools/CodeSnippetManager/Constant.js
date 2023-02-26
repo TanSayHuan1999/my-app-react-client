@@ -43,6 +43,6 @@ export const CreateCodeSnippetInputs = [
     occupyMode: "1/3",
   },
   { name: "source", label: "Source", type: "text", occupyMode: "1/3" },
-  { name: "code_snippet", label: "Code Snippet", type: "codeEditor", occupyMode: "full" },
+  { name: "codes", label: "Code Snippet", type: "codeEditor", occupyMode: "full" },
   { name: "output", label: "Output", type: "richTextEditor", occupyMode: "full" },
 ];

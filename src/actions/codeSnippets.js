@@ -5,7 +5,7 @@ export const codeSnippetList = (queryParams) => async (dispatch) => {
   try {
     const res = await api.codeSnippetList(queryParams);
     if (res.status === 200 && res.data.success) {
-      dispatch({ type: csmAction.UPDATE_CODE_SNIPPET_LIST, payload: res.data.list });
+      dispatch({ type: csmAction.UPDATE_CODE_SNIPPET_LIST, payload: res.data });
     }
   } catch (error) {
     console.error(error);
@@ -25,7 +25,18 @@ export const codeSnippetAdd = (newCodeSnippet) => async (dispatch) => {
   }
 };
 
-export const codeSnippetEdit = (id, updatedCodeSnippet) => async (dispatch) => {};
+export const codeSnippetEdit = (id, updatedCodeSnippet) => async (dispatch) => {
+  try {
+    const res = await api.codeSnippetEdit(id, updatedCodeSnippet);
+    if (res.status === 200 && res.data.success) {
+      dispatch({ type: csmAction.UPDATE_SINGLE_CODE_SNIPPET, payload: res.data.updatedCodeSnippet });
+      dispatch({ type: csmAction.CLOSE_DIALOG });
+    }
+    console.log(res);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 export const codeSnippetDetail = (id) => async (dispatch) => {};
 

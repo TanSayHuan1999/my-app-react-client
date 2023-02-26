@@ -14,6 +14,8 @@ const CodeSnippetListing = () => {
   //   // dispatch(codeSnippetList({}));
   // }, [dispatch]);
 
+  console.log(csList);
+
   return (
     <Box component="div" className="ml-2">
       <Subtitle title="Code Snippet Listing" position="center" />

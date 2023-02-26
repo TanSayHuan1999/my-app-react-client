@@ -6,7 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Title from "../components/layouts/Title";
-import PublishIcon from "@mui/icons-material/Publish";
+import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 
@@ -33,13 +33,13 @@ const useConfirmation = () => {
 
   const ConfirmationDialog = () => (
     <Dialog fullScreen={fullScreen} open={confirmation.show} onClose={() => handleDialog(false)} maxWidth="md" fullWidth>
-      <Title name="ConfirmationDialog" />
+      <Title name="Confirmation" />
       <DialogContent className="!relative">{confirmation.content}</DialogContent>
       <DialogActions>
         <Button variant="contained" endIcon={<CloseIcon />} onClick={() => handleDialog(false)} color="error">
           Cancel
         </Button>
-        <Button variant="contained" endIcon={<PublishIcon />} onClick={() => handleDialog(true)}>
+        <Button variant="contained" endIcon={<CheckIcon />} onClick={() => handleDialog(true)}>
           Confirm
         </Button>
       </DialogActions>

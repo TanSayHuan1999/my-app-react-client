@@ -8,7 +8,7 @@ import useLoading from "../../../customHooks/useLoading";
 import useAlert from "../../../customHooks/useAlert";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 import AutoStoriesSharpIcon from "@mui/icons-material/AutoStoriesSharp";
-import CodeSnippetCreationDialog from "./dialogs/CodeSnippetCreationDialog";
+import CodeSnippetHandlingDialog from "./dialogs/CodeSnippetHandlingDialog";
 import CodeSnippetListing from "./components/CodeSnippetListing";
 import CodeSnippetFilter from "./components/CodeSnippetFilter";
 import CodeSnippetViewingDialog from "./dialogs/CodeSnippetViewingDialog";
@@ -60,25 +60,25 @@ const CodeSnippetManager = () => {
   };
 
   // Functions
-  const openDialog = () => dispatch({ type: csmAction.OPEN_DIALOG, payload: "create_code_snippet" });
+  const openDialog = () => dispatch({ type: csmAction.OPEN_DIALOG, payload: { dialogName: "handle_code_snippet", dialogAction: "create_code_snippet" } });
 
   return (
     <Context.Provider value={{ showConfirmation }}>
       <Paper className="h-full p-3 pt-0 relative">
         <Title name="Code Snippet Manager" />
-        <Grid container>
-          <Grid item xs={12} md={3}>
+        <Grid container className="h-[90%]">
+          <Grid item xs={12} md={3} className="h-full overflow-y-auto">
             <CodeSnippetFilter />
           </Grid>
-          <Grid item xs={12} md={9}>
+          <Grid item xs={12} md={9} className="h-full overflow-y-auto">
             <CodeSnippetListing />
           </Grid>
         </Grid>
         <FloatingBtn />
-        <FloatingPgBtn />
+        {/* <FloatingPgBtn /> */}
         <Loading />
         <Alert />
-        <CodeSnippetCreationDialog />
+        <CodeSnippetHandlingDialog />
         <CodeSnippetViewingDialog />
         <ConfirmationDialog />
       </Paper>

@@ -17,15 +17,17 @@ import { useContext } from "react";
 const CodeSnippetBox = ({ _id, name, purpose, type, language, codes, output, tags, isFeatured, createdAt, updatedAt }) => {
   const { showConfirmation } = useContext(Context);
   const dispatch = useDispatch();
-  const handleViewCodeSnippet = () => {
-    dispatch({ type: csmAction.VIEW_CODE_SNIPPET, payload: _id });
-  };
+  const handleViewCodeSnippet = () => dispatch({ type: csmAction.VIEW_CODE_SNIPPET, payload: _id });
   const handleRemoveCodeSnippet = async () => {
     let confirm = await showConfirmation("Are you sure you want to delete this code snippet?");
     if (confirm) dispatch(codeSnippetDelete(_id));
   };
+
+  const handleCodeSnippetDetails = () => {
+    dispatch({ type: csmAction.CODE_SNIPPET_DETAILS, payload: _id });
+  };
   return (
-    <Card className="hover:outline-none hover:ring hover:ring-blue-200 hover:-translate-y-1 cursor-pointer">
+    <Card className="border-2 border-indigo-300 !rounded-xl hover:outline-none hover:ring hover:ring-blue-200 hover:-translate-y-1 cursor-pointer">
       <CardContent className="!pb-2" onClick={handleViewCodeSnippet}>
         <Box component="div" className="flex flex-row justify-between">
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -38,7 +40,7 @@ const CodeSnippetBox = ({ _id, name, purpose, type, language, codes, output, tag
         </Typography>
         <Typography className="text-gray-500 !mb-3">{tags.map((t) => `#${t} `)}</Typography>
         <Typography variant="body2">{purpose}</Typography>
-        <SyntaxHighlighter style={vscDarkPlus} language={language} className="h-[100px]">
+        <SyntaxHighlighter style={vscDarkPlus} language={language} className="h-[110px]">
           {codes}
         </SyntaxHighlighter>
         <Typography variant="caption" className="text-gray-500 !mt-3">
@@ -46,14 +48,14 @@ const CodeSnippetBox = ({ _id, name, purpose, type, language, codes, output, tag
         </Typography>
       </CardContent>
       <CardActions className="flex flex-row justify-between">
-        <IconButton color="default" onClick={handleViewCodeSnippet}>
+        <IconButton color="success" onClick={handleViewCodeSnippet}>
           <PreviewTwoToneIcon />
         </IconButton>
         <Box>
           <IconButton color="error" onClick={handleRemoveCodeSnippet}>
             <DeleteTwoToneIcon />
           </IconButton>
-          <IconButton color="info">
+          <IconButton color="info" onClick={handleCodeSnippetDetails}>
             <CreateTwoToneIcon />
           </IconButton>
         </Box>

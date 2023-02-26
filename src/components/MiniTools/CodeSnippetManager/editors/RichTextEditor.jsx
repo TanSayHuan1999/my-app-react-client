@@ -4,7 +4,6 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 export default function RichTextEditor({ name, value, onChange }) {
-  console.log(value);
   return (
     <>
       <input type="hidden" name={`${name}_val`} value={value || ""} />
