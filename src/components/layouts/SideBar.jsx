@@ -22,7 +22,7 @@ import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstruct
 const SideBar = ({ open, handleDrawerClose }) => {
   const theme = useTheme();
 
-  const drawerWidth = 240;
+  const drawerWidth = 250;
 
   const openedMixin = (theme) => ({
     width: drawerWidth,
