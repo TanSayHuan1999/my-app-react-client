@@ -15,12 +15,15 @@ import Context from "../Context";
 import { useContext } from "react";
 
 const CodeSnippetBox = ({ _id, name, purpose, type, language, codes, output, tags, isFeatured, createdAt, updatedAt }) => {
-  const { showConfirmation } = useContext(Context);
+  const { showConfirmation, showAlert } = useContext(Context);
   const dispatch = useDispatch();
   const handleViewCodeSnippet = () => dispatch({ type: csmAction.VIEW_CODE_SNIPPET, payload: _id });
   const handleRemoveCodeSnippet = async () => {
     let confirm = await showConfirmation("Are you sure you want to delete this code snippet?");
-    if (confirm) dispatch(codeSnippetDelete(_id));
+    if (confirm) {
+      dispatch(codeSnippetDelete(_id));
+      showAlert("success", "Successfully deleted code snippet")
+    }
   };
 
   const handleCodeSnippetDetails = () => {
@@ -35,11 +38,11 @@ const CodeSnippetBox = ({ _id, name, purpose, type, language, codes, output, tag
           </Typography>
           <Chip label={type.toUpperCase()} color={type === "code_snippet" ? "primary" : "success"} />
         </Box>
-        <Typography variant="h6">
-          {language.toUpperCase()}
-        </Typography>
+        <Typography variant="h6">{language.toUpperCase()}</Typography>
         <Typography className="text-gray-500 !mb-3 overflow-x-auto whitespace-nowrap p-1">{tags.map((t) => `#${t} `)}</Typography>
-        <Typography variant="body2" className="truncate overflow-ellipsis">{purpose}</Typography>
+        <Typography variant="body2" className="truncate overflow-ellipsis">
+          {purpose}
+        </Typography>
         <SyntaxHighlighter style={vscDarkPlus} language={language} className="h-[110px]">
           {codes}
         </SyntaxHighlighter>
@@ -48,7 +51,7 @@ const CodeSnippetBox = ({ _id, name, purpose, type, language, codes, output, tag
         </Typography>
       </CardContent>
       <CardActions className="flex flex-row justify-between">
-        <IconButton color="success" onClick={handleViewCodeSnippet}>
+        <IconButton color="default" onClick={handleViewCodeSnippet}>
           <PreviewTwoToneIcon />
         </IconButton>
         <Box>

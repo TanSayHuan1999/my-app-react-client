@@ -17,7 +17,6 @@ import Context from "./Context";
 
 const CodeSnippetManager = () => {
   // Variable Declarations
-
   // States
 
   // Necessary Hooks
@@ -63,7 +62,7 @@ const CodeSnippetManager = () => {
   const openDialog = () => dispatch({ type: csmAction.OPEN_DIALOG, payload: { dialogName: "handle_code_snippet", dialogAction: "create_code_snippet" } });
 
   return (
-    <Context.Provider value={{ showConfirmation }}>
+    <Context.Provider value={{ showConfirmation, showAlert }}>
       <Paper className="h-full p-3 pt-0 relative">
         <Title name="Code Snippet Manager" />
         <Grid container className="h-[90%]">

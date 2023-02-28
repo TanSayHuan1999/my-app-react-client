@@ -17,8 +17,11 @@ import PublishIcon from "@mui/icons-material/Publish";
 import CloseIcon from "@mui/icons-material/Close";
 import { codeSnippetAdd, codeSnippetEdit } from "../../../../actions/codeSnippets";
 import { selectCurrCodeSnippet, selectCurrDialog, selectCurrDialogAction } from "../../../../reducers/csm";
+import { useContext } from "react";
+import Context from "../Context";
 
 export default function CodeSnippetCreationDialog() {
+  const { showAlert } = useContext(Context);
   const dialogName = "handle_code_snippet";
   const [codeSnippetInputs, setCodeSnippetInputs] = useState([]);
   const dispatch = useDispatch();
@@ -36,6 +39,7 @@ export default function CodeSnippetCreationDialog() {
     let newCodeSnippet = { ...fd, isFeatured: fd?.isFeatured ? true : false };
     if (isEdit) dispatch(codeSnippetEdit(currCodeSnippet._id, newCodeSnippet));
     else dispatch(codeSnippetAdd(newCodeSnippet));
+    showAlert("success", `Successfully ${isEdit ? "edited" : "added"} code snippet`);
   };
 
   useEffect(() => {
