@@ -22,7 +22,7 @@ const CodeSnippetBox = ({ _id, name, purpose, type, language, codes, output, tag
     let confirm = await showConfirmation("Are you sure you want to delete this code snippet?");
     if (confirm) {
       dispatch(codeSnippetDelete(_id));
-      showAlert("success", "Successfully deleted code snippet")
+      showAlert("success", "Successfully deleted code snippet!")
     }
   };
 
