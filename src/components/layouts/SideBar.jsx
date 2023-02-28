@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
 import HardwareIcon from '@mui/icons-material/Hardware';
+import CodeIcon from '@mui/icons-material/Code';
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructionsTwoTone';
 
 const SideBar = ({ open, handleDrawerClose }) => {
   const theme = useTheme();
@@ -105,7 +107,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
               <ListItemIcon
                 sx={{
                   minWidth: 0,
-                  mr: open ? 3 : "auto",
+                  mr: open ? 2 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -114,7 +116,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
               <ListItemText primary={"EDM Generate"} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </Link>
-          <Link to="/">
+          <Link to="/mini-tools/code-snippet-manager">
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -125,11 +127,11 @@ const SideBar = ({ open, handleDrawerClose }) => {
               <ListItemIcon
                 sx={{
                   minWidth: 0,
-                  mr: open ? 3 : "auto",
+                  mr: open ? 2 : "auto",
                   justifyContent: "center",
                 }}
               >
-                <HardwareIcon />
+                <IntegrationInstructionsIcon />
               </ListItemIcon>
               <ListItemText primary={"Code Snippet Manager"} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
@@ -149,7 +151,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
             <ListItemIcon
               sx={{
                 minWidth: 0,
-                mr: open ? 3 : "auto",
+                mr: open ? 2 : "auto",
                 justifyContent: "center",
               }}
             >
@@ -167,7 +169,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
             <ListItemIcon
               sx={{
                 minWidth: 0,
-                mr: open ? 3 : "auto",
+                mr: open ? 2 : "auto",
                 justifyContent: "center",
               }}
             >

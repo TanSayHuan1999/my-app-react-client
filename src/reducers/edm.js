@@ -1,4 +1,4 @@
-import { edmAction } from "../actions/actionTypes";
+import { edmAction } from "../constants/actionTypes";
 
 const initialState = {
   input: {
