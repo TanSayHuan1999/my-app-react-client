@@ -3,9 +3,11 @@ import { csmAction } from "../constants/actionTypes";
 
 export const codeSnippetList = (queryParams) => async (dispatch) => {
   try {
+    dispatch({ type: csmAction.START_LOADING });
     const res = await api.codeSnippetList(queryParams);
     if (res.status === 200 && res.data.success) {
       dispatch({ type: csmAction.UPDATE_CODE_SNIPPET_LIST, payload: res.data });
+      setTimeout(() => dispatch({ type: csmAction.END_LOADING }), 500);
     }
   } catch (error) {
     console.error(error);

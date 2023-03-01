@@ -4,7 +4,6 @@ import React, { useState, memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Title from "../../layouts/Title";
 import { csmAction } from "../../../constants/actionTypes";
-import useLoading from "../../../customHooks/useLoading";
 import useAlert from "../../../customHooks/useAlert";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 import AutoStoriesSharpIcon from "@mui/icons-material/AutoStoriesSharp";
@@ -25,7 +24,6 @@ const CodeSnippetManager = () => {
 
   // Custom Hooks
   const { Alert, showAlert, hideAlert } = useAlert();
-  const { Loading, startLoading, endLoading } = useLoading();
 
   // Components
 
@@ -39,22 +37,6 @@ const CodeSnippetManager = () => {
         <LibraryAddIcon className="mr-1 text-indigo-100" />
         <Typography className="text-indigo-100">Create New Snippet</Typography>
       </Fab>
-    );
-  };
-
-  const FloatingPgBtn = () => {
-    return (
-      <Box component="div" className="group !fixed bottom-10 opacity-90 w-[25%] sm:w-[19%]">
-        <Fab variant="circular" color="primary" className="left-10 hover:transform hover:scale-90 transition duration-2000 ease-linear">
-          <AutoStoriesSharpIcon className="mr-1 text-indigo-100" />
-        </Fab>
-        <Box
-          component="div"
-          className="opacity-0 invisible absolute z-10 bottom-2 left-[30%] w-full p-1 rounded-lg bg-white shadow-md group-hover:opacity-100 group-hover:visible transition duration-300"
-        >
-          <Pagination count={10} variant="outlined" color="primary" />
-        </Box>
-      </Box>
     );
   };
 
@@ -74,8 +56,6 @@ const CodeSnippetManager = () => {
           </Grid>
         </Grid>
         <FloatingBtn />
-        {/* <FloatingPgBtn /> */}
-        <Loading />
         <Alert />
         <CodeSnippetHandlingDialog />
         <CodeSnippetViewingDialog />

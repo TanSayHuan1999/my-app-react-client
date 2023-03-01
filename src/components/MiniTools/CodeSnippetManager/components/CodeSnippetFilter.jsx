@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Fab, InputAdornment, MenuItem, Pagination, TextField } from "@mui/material";
+import { Backdrop, Box, Button, CircularProgress, Divider, Fab, InputAdornment, MenuItem, Pagination, TextField } from "@mui/material";
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { CreateCodeSnippetInputs } from "../Constant";
@@ -10,7 +10,7 @@ import { useState } from "react";
 import { codeSnippetList, getTags } from "../../../../actions/codeSnippets";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { selectListTotalPages, selectTags } from "../../../../reducers/csm";
+import { selectListTotalPages, selectLoading, selectTags } from "../../../../reducers/csm";
 import DebouncedInput from "../editors/DebouncedInput";
 import { debounce } from "lodash";
 import { useCallback } from "react";
@@ -23,6 +23,7 @@ const CodeSnippetFilter = () => {
   const languageList = CreateCodeSnippetInputs.find((i) => i.name === "language")?.options;
   const totalPages = useSelector(selectListTotalPages);
   const tags = useSelector(selectTags);
+
   useEffect(() => {
     dispatch(getTags());
     dispatch(codeSnippetList(query));
@@ -38,9 +39,7 @@ const CodeSnippetFilter = () => {
   const normalDispatchFetch = (query) => dispatch(codeSnippetList(query));
 
   const handleValue = (e, pageNo) => {
-    console.log(e);
     const { name, value } = e.target;
-    console.log(name);
     if (name === "search") {
       debouncedDispatchFetch({ ...query, [name]: value });
     } else {
