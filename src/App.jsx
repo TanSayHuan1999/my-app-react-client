@@ -9,6 +9,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import SideBar from "./components/layouts/SideBar";
 import GenEDM from "./components/MiniTools/GenEDM/GenEDM";
 import CodeSnippetManager from "./components/MiniTools/CodeSnippetManager/CodeSnippetManager";
+import YoutubeDownloader from "./components/MiniTools/YoutubeDownloader/YoutubeDownloader";
 
 const App = () => {
   const [open, setOpen] = useState(true);
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="/home2" element={<Home2 />} />
             <Route path="/mini-tools/gen-edm" element={<GenEDM />} />
             <Route path="/mini-tools/code-snippet-manager" element={<CodeSnippetManager />} />
+            <Route path="/mini-tools/youtube-downloader" element={<YoutubeDownloader />} />
           </Routes>
         </Box>
       </Box>

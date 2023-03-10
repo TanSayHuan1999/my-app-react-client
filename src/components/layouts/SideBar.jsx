@@ -18,6 +18,7 @@ import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
 import HardwareIcon from '@mui/icons-material/Hardware';
 import CodeIcon from '@mui/icons-material/Code';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructionsTwoTone';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const SideBar = ({ open, handleDrawerClose }) => {
   const theme = useTheme();
@@ -134,6 +135,26 @@ const SideBar = ({ open, handleDrawerClose }) => {
                 <IntegrationInstructionsIcon />
               </ListItemIcon>
               <ListItemText primary={"Code Snippet Manager"} sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </Link>
+          <Link to="/mini-tools/youtube-downloader">
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 2 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <YouTubeIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Youtube Downloader"} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </Link>
         </ListItem>
